@@ -1,0 +1,17 @@
+{
+  "name": "http-status-utils",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/test.js"
+  },
+  "keywords": [],
+  "author": "dpaulos6",
+  "license": "MIT",
+  "description": "String utils library.",
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "typescript": "^5.5.3"
+  }
+}
