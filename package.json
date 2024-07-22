@@ -1,15 +1,28 @@
 {
   "name": "http-status-utils",
-  "version": "1.0.0",
+  "description": "A simple utility library for HTTP status codes.",
+  "version": "1.0.1",
+  "author": "dpaulos6 <dpaulos6@outlook.com> (https://dpaulos6.com)",
   "main": "index.ts",
   "scripts": {
     "build": "tsc",
     "test": "node dist/test.js"
   },
-  "keywords": [],
-  "author": "dpaulos6",
+  "keywords": [
+    "http",
+    "status",
+    "utils",
+    "express"
+  ],
+  "homepage": "https://github.com/dpaulos6/http-status-utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dpaulos6/http-status-utils"
+  },
+  "bugs": {
+    "url": "http://github.com/dpaulos6/http-status-utils/issues"
+  },
   "license": "MIT",
-  "description": "String utils library.",
   "devDependencies": {
     "@types/node": "^20.14.11",
     "typescript": "^5.5.3"
