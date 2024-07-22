@@ -3,7 +3,7 @@
   "description": "A simple utility library for HTTP status codes.",
   "version": "1.0.1",
   "author": "dpaulos6 <dpaulos6@outlook.com> (https://dpaulos6.com)",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "node dist/test.js"
