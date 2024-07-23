@@ -15,6 +15,11 @@ export function isError(code: number): boolean {
   return code >= 400 && code < 600;
 }
 
+export function isTeapot(code: number): boolean {
+  verifyCode(code)
+  return code === 418;
+}
+
 export function handleHttp(code: number) {
   verifyCode(code);
   return {
