@@ -22,57 +22,57 @@ import {
   getDescription,
   isSuccess,
   isError,
-  handleHttp,
-} from "http-status-utils";
+  handleHttp
+} from 'http-status-utils'
 
 // Direct usage of functions
-console.log(getDescription(200)); // OK
-console.log(isSuccess(200)); // true
-console.log(isError(404)); // true
+console.log(getDescription(200)) // OK
+console.log(isSuccess(200)) // true
+console.log(isError(404)) // true
 
 // Using handleHttp function
 const {
   description,
   isSuccess: successStatus,
-  isError: errorStatus,
-} = handleHttp(200);
+  isError: errorStatus
+} = handleHttp(200)
 
-console.log(description); // OK
-console.log(successStatus); // true
-console.log(errorStatus); // false
+console.log(description) // OK
+console.log(successStatus) // true
+console.log(errorStatus) // false
 ```
 
 Example with `fetch()`
 
 ```tsx
-import fetch from "node-fetch";
-import { handleHttp } from "http-status-utils";
+import fetch from 'node-fetch'
+import { handleHttp } from 'http-status-utils'
 
 try {
-  const response = await fetch("https://example.com/api/v1/");
-  const { status } = response;
+  const response = await fetch('https://example.com/api/v1/')
+  const { status } = response
 
   // Use handleHttp to get status code details
-  const { description, isSuccess, isError } = handleHttp(status);
+  const { description, isSuccess, isError } = handleHttp(status)
 
   if (isError) {
-    console.error(`Error: ${description}`);
-    return;
+    console.error(`Error: ${description}`)
+    return
   }
 
   if (!isSuccess) {
-    console.log(`Received HTTP status code ${status}: ${description}`);
-    return;
+    console.log(`Received HTTP status code ${status}: ${description}`)
+    return
   }
 
   // Parse and use the JSON data
-  const data = await response.json();
-  console.log("Fetched Data:", data);
+  const data = await response.json()
+  console.log('Fetched Data:', data)
 
   // Example of using the data.description
-  console.log(`Status Description: ${description}`);
+  console.log(`Status Description: ${description}`)
 } catch (error) {
-  console.error("Network Error:", error);
+  console.error('Network Error:', error)
 }
 ```
 
@@ -93,12 +93,6 @@ Returns an object containing the description, isSuccess, and isError status for 
 ## Testing
 
 If you want to test the library's functionality, you can do so by running:
-
-```sh
-npm run build
-```
-
-Then:
 
 ```sh
 npm test
