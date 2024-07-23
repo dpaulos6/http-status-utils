@@ -1,7 +1,7 @@
 import { codes } from "./codes";
 
 export function getDescription(code: number): string {
-  if (!code || !Number.isInteger(code)) {
+  if (!Number.isInteger(code)) {
     throw new TypeError(`Expected code to be an integer, instead got ${code}`);
   }
 
@@ -13,7 +13,7 @@ export function getDescription(code: number): string {
 }
 
 export function isSuccess(code: number): boolean {
-  if (!code || !Number.isInteger(code)) {
+  if (!Number.isInteger(code)) {
     throw new TypeError(`Expected code to be an integer, instead got ${code}`);
   }
 
@@ -25,7 +25,7 @@ export function isSuccess(code: number): boolean {
 }
 
 export function isError(code: number): boolean {
-  if (!code || !Number.isInteger(code)) {
+  if (!Number.isInteger(code)) {
     throw new TypeError(`Expected code to be an integer, instead got ${code}`);
   }
 
@@ -37,7 +37,7 @@ export function isError(code: number): boolean {
 }
 
 export function handleHttp(code: number) {
-  if (!code || !Number.isInteger(code)) {
+  if (!Number.isInteger(code)) {
     throw new TypeError(`Expected code to be an integer, instead got ${code}`);
   }
 
