@@ -36,6 +36,18 @@ export function isError(code: number): boolean {
   return code >= 400 && code < 600;
 }
 
+export function isTeapot(code: number): boolean {
+  if (!Number.isInteger(code)) {
+    throw new TypeError(`Expected code to be an integer, instead got ${code}`);
+  }
+
+  if (code < 100 || code > 599) {
+    throw new RangeError(`Expected code to be between 100 and 599, instead got ${code}`);
+  }
+
+  return code === 418;
+}
+
 export function handleHttp(code: number) {
   if (!Number.isInteger(code)) {
     throw new TypeError(`Expected code to be an integer, instead got ${code}`);
