@@ -90,8 +90,8 @@ Returns true if the status code indicates an error (4xx or 5xx).
 `isTeapot(code: number): boolean` -
 Returns true if the status code indicates teapot (418).
 
-`handleHttp(code: number): { description: string, isSuccess: boolean, isError: boolean }` -
-Returns an object containing the description, isSuccess, and isError status for the given HTTP status code.
+`handleHttp(code: number): { description: string, isSuccess: boolean, isError: boolean, isTeapot: boolean }` -
+Returns an object containing the respective details for the given HTTP status code.
 
 ## Testing
 
