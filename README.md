@@ -2,6 +2,11 @@
 
 A simple utility library for HTTP status codes.
 
+All functions receive an integer and check if it's a valid HTTP status code, then returns the respective value.  
+If the received value is not an integer and not a valid HTTP status code, it will throw an exception preventing your app to compile. That way you can easily see if the problem in an API response is related to the status code and why.
+
+Check [Usage](#usage) for further details on how to use it.
+
 ## Installation
 
 ```sh
@@ -84,3 +89,17 @@ Returns true if the status code indicates an error (4xx or 5xx).
 
 `handleHttp(code: number): { description: string, isSuccess: boolean, isError: boolean }` -
 Returns an object containing the description, isSuccess, and isError status for the given HTTP status code.
+
+## Testing
+
+If you want to test the library's functionality, you can do so by running:
+
+```sh
+npm run build
+```
+
+Then:
+
+```sh
+npm test
+```
