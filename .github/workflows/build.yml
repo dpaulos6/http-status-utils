@@ -1,0 +1,55 @@
+
+name: Automatic Build
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+
+concurrency:
+  group: "main-branch"
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    name: Create Build Files
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          version: latest
+          
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          
+      - run: npm ci
+
+      - name: Generate Build Files
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        id: build-files
+        with:
+          commit_message: "chore(build): update build files"
+          skip_checkout: true
+          branch: "build-${{ github.sha }}"
+          create_branch: true
+
+      # create PR using GitHub CLI if files were formatted
+      - name: create PR with build files
+        if: steps.build-files.outputs.changes_detected == 'true'
+        id: create-pr
+        run: git checkout build-${{ github.sha }} && gh pr create --base main --head build-${{ github.sha }} --title 'Merge build update into main' --body 'Created by Github action'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # merge PR using GitHub CLI
+      - name: merge PR with new build files
+        if: steps.build-files.outputs.changes_detected == 'true'
+        id: merge-pr
+        run: gh pr merge --admin --merge --subject 'Merge updated build files' --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
