@@ -1,7 +1,7 @@
 {
   "name": "http-status-utils",
   "description": "A simple utility library for HTTP status codes.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "dpaulos6 <dpaulos6@outlook.com> (https://dpaulos6.com)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
