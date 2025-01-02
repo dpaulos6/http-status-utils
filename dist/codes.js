@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.codes = void 0;
+/**
+ * A collection of HTTP status codes and their corresponding messages.
+ * @type {Code}
+ */
 exports.codes = {
     '100': 'Continue',
     '101': 'Switching Protocols',
